@@ -1,0 +1,14 @@
+services:
+  supermemory:
+    build: .
+    ports:
+      - "6767:6767"
+    environment:
+      SUPERMEMORY_API_KEY: ${SUPERMEMORY_API_KEY:?Set SUPERMEMORY_API_KEY in your environment}
+      SUPERMEMORY_DATA_FILE: /data/store.json
+    volumes:
+      - supermemory_data:/data
+    restart: unless-stopped
+
+volumes:
+  supermemory_data:
