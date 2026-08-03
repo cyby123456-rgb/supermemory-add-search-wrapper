@@ -1,3 +1,4 @@
-.data/
 .env
-node_modules/
+*.runtime.env
+.data/
+__pycache__/

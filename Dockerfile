@@ -1,11 +1,9 @@
-FROM node:24-alpine
+FROM python:3.11-alpine
 
 WORKDIR /app
-COPY package.json server.mjs ./
+COPY deploy/official_adapter.py ./official_adapter.py
 
-ENV PORT=6767
-ENV SUPERMEMORY_DATA_FILE=/data/store.json
-VOLUME ["/data"]
-EXPOSE 6767
+ENV PORT=6768
+EXPOSE 6768
 
-CMD ["node", "server.mjs"]
+CMD ["python3", "official_adapter.py"]
